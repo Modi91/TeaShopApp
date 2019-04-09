@@ -1,37 +1,40 @@
 import React, { Component } from "react";
-import { Text, View } from "native-base";
-import * as actionCreators from "../../store/actions";
+
+// import * as actionCreators from "../../store/actions";
+import { Container, View } from "native-base";
+import AppContainer from "../../navigation/index";
 
 import { connect } from "react-redux";
 
-class index extends Component {
-  componentDidMount() {
-    this.props.fetchProducts();
-  }
+class HomePage extends Component {
+  // componentDidMount() {
+  //   this.props.fetchProducts();
+  // }
 
   render() {
-    const products = this.props.products;
-    console.log("TCL: index -> render -> products", products);
     return (
-      <View>
-        <Text>Welcom to Saudi Tea Shop</Text>
-      </View>
+      <Container>
+        <View />
+        <AppContainer />
+      </Container>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    products: state.products.products
-  };
-};
+// const mapStateToProps = state => {
+//   return {
+//     products: state.products.products
+//   };
+// };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchProducts: () => dispatch(actionCreators.fetchProducts())
-  };
-};
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(index);
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     fetchProducts: () => dispatch(actionCreators.fetchProducts())
+//   };
+// };
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(index);
+
+export default HomePage;
