@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Text, View } from "native-base";
+import { Text, View, Container } from "native-base";
 import * as actionCreators from "../../store/actions";
-
+import AppContainer from "../../navigation/index";
 import { connect } from "react-redux";
 
 class index extends Component {
@@ -11,11 +11,11 @@ class index extends Component {
 
   render() {
     const products = this.props.products;
-    console.log("TCL: index -> render -> products", products);
     return (
-      <View>
-        <Text>Welcom to Saudi Tea Shop</Text>
-      </View>
+      <Container>
+        <View />
+        <AppContainer />
+      </Container>
     );
   }
 }
