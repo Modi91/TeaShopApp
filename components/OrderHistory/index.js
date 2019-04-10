@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import { Card, ListGroup } from "react-bootstrap";
 import { connect } from "react-redux";
-import OrderTableRow from "../OrderHistory/OrderTableRow";
+import OrderTableRow from "./OrderTableRow";
 import * as actionCreators from "../../../store/actions/index";
 
 // Components
