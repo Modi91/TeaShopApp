@@ -3,9 +3,13 @@ import { createStackNavigator } from "react-navigation";
 import Homepage from "../Homepage";
 import ProductList from "../ProductList";
 import ProductDetail from "../ProductDetail";
+// import OrderHistory from "../OrderHistory";
+// import SpicificOrderTable from "../OrderHistory/SpicificOrderTable";
 
 const ListStack = createStackNavigator(
   {
+    // OrderHistory: OrderHistory,
+    // SpicificOrderTable: SpicificOrderTable,
     Home: Homepage,
     List: ProductList,
     Detail: ProductDetail
