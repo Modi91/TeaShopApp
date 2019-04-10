@@ -17,7 +17,7 @@ class HomePage extends Component {
       >
         <Text
           style={{
-            fontSize: 45,
+            fontSize: 35,
             marginTop: 30,
             fontWeight: "bold",
             color: "rgb(255, 255, 255)",
@@ -28,15 +28,15 @@ class HomePage extends Component {
         </Text>
         <Text
           style={{
-            fontSize: 35,
+            fontSize: 25,
             paddingTop: 10,
             fontStyle: "italic",
             color: "rgb(255, 255, 255)",
             marginLeft: 10
           }}
         >
-          .. Whether you prefer Loose Leaf or Sachets, our tea comes in a
-          variety of blends and brew methods
+          Whether you prefer Loose Leaf or Sachets, our tea comes in a variety
+          of blends and brew methods
         </Text>
         <Button
           onPress={() => this.props.navigation.navigate("List")}
@@ -45,8 +45,8 @@ class HomePage extends Component {
             border: "0px",
             opacity: "0.6",
             fontSize: 18,
-            marginTop: 20,
-            marginLeft: 10
+            marginTop: 50,
+            alignSelf: "center"
           }}
         >
           <Text style={{ marginLeft: 10 }}>
