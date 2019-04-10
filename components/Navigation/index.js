@@ -1,3 +1,4 @@
+// Maram's
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
 import Homepage from "../Homepage_new";
@@ -25,4 +26,12 @@ const StackNav = createStackNavigator(
 );
 
 const AppContainer = createAppContainer(StackNav);
+// Buttom nav
+import { createAppContainer } from "react-navigation";
+
+import BottomNav from "./BottomNav";
+
+const AppContainer = createAppContainer(BottomNav);
+
+
 export default AppContainer;
