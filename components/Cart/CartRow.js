@@ -4,6 +4,7 @@ import {
   Button,
   Content,
   Card,
+  Icon,
   CardItem,
   Text,
   Body,
@@ -17,30 +18,47 @@ class CartRow extends Component {
   };
 
   render() {
+    const Itemquantity = this.props.cart.find(
+      item => item.product.id === this.props.item.product.id
+    );
     return (
       <ListItem>
         <Content>
           <Card>
             <CardItem header>
-              <Text>Product name</Text>
+              <Text>
+                {/* {this.props.item.product.name} */}
+                name
+              </Text>
             </CardItem>
             <CardItem>
               <Body>
-                <Text>product details</Text>
+                <Text>
+                  {/* {this.props.item.product.price} */}
+                  price
+                </Text>
               </Body>
             </CardItem>
             <CardItem footer>
-              <Button danger onPress={() => this.handleDecrease}>
-                <Text>decrease</Text>
-              </Button>
+              <Icon
+                name="minus"
+                type="AntDesign"
+                danger
+                onPress={() => alert("hi")}
+              />
+
               <Button
                 danger
-                onPress={() =>
-                  this.props.removeFromCart(this.props.item.product.id)
-                }
-              >
-                <Text>remove</Text>
-              </Button>
+                onPress={() => {
+                  /* this.props.removeFromCart(this.props.item.product.id) */
+                }}
+              />
+              <Icon
+                name="trash-2"
+                type="Feather"
+                danger
+                onPress={() => alert("hi")}
+              />
             </CardItem>
           </Card>
         </Content>
@@ -65,3 +83,10 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(CartRow);
+
+// {
+//   Itemquantity.quantity;
+// }
+// {
+//   this.props.item.quantity * this.props.item.product.price;
+// }

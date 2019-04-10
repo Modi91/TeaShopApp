@@ -4883,6 +4883,11 @@ react-native-branch@2.2.5:
   resolved "https://registry.yarnpkg.com/react-native-branch/-/react-native-branch-2.2.5.tgz#4074dd63b4973e6397d9ce50e97b57c77a518e9d"
   integrity sha1-QHTdY7SXPmOX2c5Q6XtXx3pRjp0=
 
+react-native-directed-scrollview@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-directed-scrollview/-/react-native-directed-scrollview-2.0.0.tgz#b12aaaf7a7e27435dde80a2fc04ec02c5ef571a1"
+  integrity sha512-wKqdaj/r/bI1SAS7aIhPlsb1DAvd9F7KwNuvap2yDZEuLJIKApwIvnK4UGPWUyaEMEnmFnmT2w7izY7hSt+myQ==
+
 react-native-drawer@2.5.1:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/react-native-drawer/-/react-native-drawer-2.5.1.tgz#08b9314184f48c724f1b467f8859797369798654"

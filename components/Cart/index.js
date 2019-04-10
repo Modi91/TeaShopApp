@@ -8,12 +8,15 @@ import {
   FooterTab,
   Footer,
   ListItem,
-  CheckBox,
   Text,
+  View,
   Body
 } from "native-base";
+
 import { connect } from "react-redux";
+import { ScrollView } from "react-native-gesture-handler";
 import * as actionCreators from "../../store/actions";
+
 import CartRow from "./CartRow";
 
 // Components
@@ -41,18 +44,21 @@ class CartPage extends Component {
     const mapTotal = this.props.cart.map(
       item => item.product.price * item.quantity
     );
-    const orders_list = this.props.cart.map(item => ({
-      product: item.product.id,
-      quantity: item.quantity
-    }));
+    // const orders_list = this.props.cart.map(item => ({
+    //   product: item.product.id,
+    //   quantity: item.quantity
+    // }));
     return (
       <Container>
-        <List>
-          <CartRow />
-          <CartRow />
-          <CartRow />
-        </List>
-        <Header />
+        <ScrollView>
+          <List>
+            <CartRow />
+            <CartRow />
+            <CartRow />
+            <CartRow />
+            <CartRow />
+          </List>
+        </ScrollView>
 
         <Footer>
           <FooterTab>
