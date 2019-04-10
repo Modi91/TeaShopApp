@@ -10,7 +10,6 @@ class App extends React.Component {
         <AppContainer />
       </Provider>
     );
-
   }
 }
 export default App;

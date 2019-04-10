@@ -2,10 +2,12 @@ import { createBottomTabNavigator } from "react-navigation";
 import React from "react";
 import { Icon } from "native-base";
 import AuthStack from "./AuthStack";
+import ListStack from "./ListStack";
 
 const BottomNav = createBottomTabNavigator(
   {
-    Auth: AuthStack
+    Auth: AuthStack,
+    List: ListStack
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -19,14 +21,10 @@ const BottomNav = createBottomTabNavigator(
             iconName = "account";
             iconType = "MaterialCommunityIcons";
             break;
-          //   case "ClassRooms":
-          //     iconName = "ios-book";
-          //     iconType = "Ionicons";
-          //     break;
-          //   case "Students":
-          //     iconName = "book-reader";
-          //     iconType = "FontAwesome5";
-          //     break;
+          case "List":
+            iconName = "home";
+            iconType = "Feather";
+            break;
           default:
             iconName = "account";
             iconType = "MaterialCommunityIcons";

@@ -2,11 +2,14 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 
 import Login from "../Authntication/Login";
 import Signup from "../Authntication/Signup";
-
+import Profile from "../Profile";
+import OrderHistory from "../OrderHistory";
 const AuthStack = createStackNavigator(
   {
     Login: Login,
-    Signup: Signup
+    Signup: Signup,
+    Profile: Profile,
+    History: OrderHistory
   },
   {
     initialRouteName: "Login",
@@ -14,13 +17,13 @@ const AuthStack = createStackNavigator(
       backgroundColor: "rgb(248, 249, 250)"
     },
     defaultNavigationOptions: {
+      headerTintColor: "white",
       headerStyle: {
-        backgroundColor: "rgb(248, 249, 250)"
+        backgroundColor: "rgb(155, 166, 87)"
       },
-      headerTitleStyle: {
+      headerTextStyle: {
         fontWeight: "bold"
-      },
-      headerTintColor: "rgb(248, 249, 250)"
+      }
     }
   }
 );
