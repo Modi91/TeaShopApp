@@ -1,7 +1,7 @@
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
-import Login from "../components/Auth/Login";
-import Signup from "../components/Auth/Signup";
+import Login from "../Authntication/Login";
+import Signup from "../Authntication/Signup";
 
 const AuthStack = createStackNavigator(
   {
