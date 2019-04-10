@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import SpicificOrderRow from "./SpicificOrderRow";
-import { Container, List } from "native-base";
+import { Container, List, FooterTab, Footer, Text } from "native-base";
 import { ScrollView } from "react-native-gesture-handler";
 class SpicificOrderTable extends Component {
   render() {
@@ -21,6 +21,14 @@ class SpicificOrderTable extends Component {
         <ScrollView>
           <List>{historyRow}</List>
         </ScrollView>
+        <Footer>
+          <FooterTab>
+            <Text>
+              Total:
+              {this.props.navigation.getParam("order").total}
+            </Text>
+          </FooterTab>
+        </Footer>
       </Container>
     );
   }
@@ -37,5 +45,3 @@ export default connect(
   mapStateToProps,
   null
 )(SpicificOrderTable);
-
-//  <div>Total: {this.props.navigation.getParam("order").total}</div>
