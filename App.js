@@ -1,11 +1,16 @@
 import React from "react";
 import { Provider } from "react-redux";
 import store from "./store";
-// import HomePage from "./components/HomePage";
+import AppContainer from "./components/Navigation";
 
 class App extends React.Component {
   render() {
-    return <Provider store={store}>{/* <HomePage /> */}</Provider>;
+    return (
+      <Provider store={store}>
+        <AppContainer />
+      </Provider>
+    );
+
   }
 }
 export default App;
