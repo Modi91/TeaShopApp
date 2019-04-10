@@ -3,11 +3,13 @@ import React from "react";
 import { Icon } from "native-base";
 import AuthStack from "./AuthStack";
 import ListStack from "./ListStack";
+import CartStack from "./CartStack";
 
 const BottomNav = createBottomTabNavigator(
   {
     Auth: AuthStack,
-    List: ListStack
+    List: ListStack,
+    Cart: CartStack
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -24,6 +26,10 @@ const BottomNav = createBottomTabNavigator(
           case "List":
             iconName = "home";
             iconType = "Feather";
+            break;
+          case "Cart":
+            iconName = "shoppingcart";
+            iconType = "AntDesign";
             break;
           default:
             iconName = "account";
