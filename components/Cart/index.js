@@ -27,11 +27,15 @@ class CartPage extends Component {
     res: false
   };
   handlePress = async orders => {
-    await this.props.createOrder(orders);
-    if (this.props.response[0] === true) {
-      this.props.emptyCart();
+    if (this.props.user) {
+      await this.props.createOrder(orders);
+      if (this.props.response[0] === true) {
+        this.props.emptyCart();
+      } else {
+        this.setState({ res: true });
+      }
     } else {
-      this.setState({ res: true });
+      return this.props.navigation.navigate("Login");
     }
   };
 
@@ -94,7 +98,8 @@ class CartPage extends Component {
 const mapStateToProps = state => {
   return {
     cart: state.cartReducer.cart,
-    response: state.cartReducer.response
+    response: state.cartReducer.response,
+    user: state.authReducer.user
   };
 };
 

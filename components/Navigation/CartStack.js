@@ -1,9 +1,12 @@
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
 import Cart from "../Cart/index";
+import Login from "../Authntication/Login";
+
 const Cartstack = createStackNavigator(
   {
-    Cart: Cart
+    Cart: Cart,
+    Login: Login
   },
   {
     initialRouteName: "Cart",
