@@ -18,3 +18,5 @@ export {
 } from "./cartActions";
 
 export { fetchOrdersHistory } from "./historyActions";
+
+export { fetchProfile, updateProfile, emptyProfile } from "./profileActions";

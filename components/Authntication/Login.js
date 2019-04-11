@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions/authActions";
+import Profile from "../Profile";
 
 // NativeBase Components
 import {
@@ -25,28 +26,31 @@ class Login extends Component {
     password: ""
   };
   render() {
-    return (
-      <Content>
-        <Header transparent />
-        <List>
-          <ListItem style={{ borderBottomWidth: 0 }}>
-            <Body>
-              <Form>
-                <Item
-                  rounded
-                  style={{
-                    backgroundColor: "white",
-                    marginTop: 10,
-                    marginBottom: 10
-                  }}
-                >
-                  <Input
-                    autoCorrect={false}
-                    autoCapitalize="none"
-                    onChangeText={username => this.setState({ username })}
-                    placeholder="username"
-                  />
-                </Item>
+    if (this.props.user) {
+      return this.props.navigation.navigate("Profile");
+    } else {
+      return (
+        <Content>
+          <Header transparent />
+          <List>
+            <ListItem style={{ borderBottomWidth: 0 }}>
+              <Body>
+                <Form>
+                  <Item
+                    rounded
+                    style={{
+                      backgroundColor: "white",
+                      marginTop: 10,
+                      marginBottom: 10
+                    }}
+                  >
+                    <Input
+                      autoCorrect={false}
+                      autoCapitalize="none"
+                      onChangeText={username => this.setState({ username })}
+                      placeholder="username"
+                    />
+                  </Item>
 
                 <Item
                   rounded
@@ -83,6 +87,12 @@ class Login extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    user: state.authReducer.user
+  };
+};
+
 const mapDispatchToProps = dispatch => ({
   login: (userData, navigation) =>
     dispatch(actionCreators.login(userData, navigation)),
@@ -92,6 +102,6 @@ const mapDispatchToProps = dispatch => ({
   // checkForExpiredToken: () => dispatch(actionCreators.checkForExpiredToken())
 });
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Login);

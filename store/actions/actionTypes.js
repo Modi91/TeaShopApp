@@ -26,3 +26,7 @@ export const FETCH_ORDERS_HISTORY = "FETCH_ORDERS_HISTORY";
 
 // Profile
 // fetching a profile based on the logged in user
+
+export const FETCH_PROFILE = "FETCH_PROFILE";
+export const UPDATE_PROFILE = " UPDATE_PROFILE";
+export const EMPTY_PROFILE = "EMPTY_PROFILE";
