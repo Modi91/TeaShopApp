@@ -124,6 +124,13 @@ class Profile extends Component {
                 {profile.zip_code}
               </Text>
             </CardItem>
+            <Button
+              full
+              onPress={() => this.props.navigation.navigate("OrderHistory")}
+              style={{ backgroundColor: "rgb(155, 166, 87)" }}
+            >
+              <Text> You Orders History</Text>
+            </Button>
             {/* <Button
               full
               onPress={() => this.props.navigation.navigate("Update")}
