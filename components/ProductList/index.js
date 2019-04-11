@@ -7,6 +7,9 @@ import ProductCard from "./ProductCard";
 import { connect } from "react-redux";
 
 class ProductList extends Component {
+  static navigationOptions = {
+    title: "Products"
+  };
   render() {
     let products = this.props.products;
 
