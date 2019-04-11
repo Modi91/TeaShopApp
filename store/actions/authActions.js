@@ -91,8 +91,9 @@ export const signup = (userData, navigation) => {
   };
 };
 
-export const logout = () => {
+export const logout = navigation => {
   setAuthToken();
+  navigation.navigate("Login");
   return setCurrentUser();
 };
 

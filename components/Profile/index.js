@@ -138,6 +138,13 @@ class Profile extends Component {
             >
               <Text>Update</Text>
             </Button> */}
+            <Button
+              full
+              onPress={() => this.props.logout(this.props.navigation)}
+              style={{ backgroundColor: "rgb(155, 166, 87)" }}
+            >
+              <Text>LogOut</Text>
+            </Button>
           </Card>
         </Container>
       );
@@ -149,6 +156,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  logout: navigation => dispatch(actionCreators.logout(navigation)),
   fetchProfile: () => dispatch(actionCreators.fetchProfile())
 });
 
