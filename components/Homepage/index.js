@@ -6,6 +6,9 @@ import { ImageBackground } from "react-native";
 import * as actionCreators from "../../store/actions";
 
 class HomePage extends Component {
+  static navigationOptions = {
+    title: "Home"
+  };
   componentDidMount() {
     this.props.fetchProducts();
   }

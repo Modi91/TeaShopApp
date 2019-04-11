@@ -52,7 +52,8 @@ class ProductCard extends Component {
                 <CardItem>
                   <Text
                     style={{
-                      position: "relative"
+                      position: "relative",
+                      color: "rgb(137, 137, 136)"
                     }}
                   >
                     {product.price}
@@ -60,9 +61,13 @@ class ProductCard extends Component {
                 </CardItem>
                 <CardItem>
                   {product.stock > 0 ? (
-                    <Text style={{ color: "green" }}>In Stock</Text>
+                    <Text style={{ color: "green", fontSize: 13 }}>
+                      In Stock
+                    </Text>
                   ) : (
-                    <Text style={{ color: "red" }}>Out of Stock</Text>
+                    <Text style={{ color: "red", fontSize: 13 }}>
+                      Out of Stock
+                    </Text>
                   )}
                 </CardItem>
               </Card>
