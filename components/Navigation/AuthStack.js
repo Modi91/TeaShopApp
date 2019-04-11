@@ -4,12 +4,16 @@ import Login from "../Authntication/Login";
 import Signup from "../Authntication/Signup";
 import Profile from "../Profile";
 import OrderHistory from "../OrderHistory";
+import Homepage from "../Homepage";
+import Update from "../UpdateProfile";
 const AuthStack = createStackNavigator(
   {
     Login: Login,
     Signup: Signup,
     Profile: Profile,
-    History: OrderHistory
+    Update: Update,
+    History: OrderHistory,
+    Home: Homepage
   },
   {
     initialRouteName: "Login",

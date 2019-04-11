@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions/authActions";
+import Profile from "../Profile";
 
 // NativeBase Components
 import {
@@ -22,63 +23,75 @@ class Login extends Component {
     password: ""
   };
   render() {
-    return (
-      <Content>
-        <Header transparent />
-        <List>
-          <ListItem style={{ borderBottomWidth: 0 }}>
-            <Body>
-              <Form>
-                <Item
-                  rounded
-                  style={{
-                    backgroundColor: "white",
-                    marginTop: 10,
-                    marginBottom: 10
-                  }}
-                >
-                  <Input
-                    autoCorrect={false}
-                    autoCapitalize="none"
-                    onChangeText={username => this.setState({ username })}
-                    placeholder="username"
-                  />
-                </Item>
+    if (this.props.user) {
+      return this.props.navigation.navigate("Profile");
+    } else {
+      return (
+        <Content>
+          <Header transparent />
+          <List>
+            <ListItem style={{ borderBottomWidth: 0 }}>
+              <Body>
+                <Form>
+                  <Item
+                    rounded
+                    style={{
+                      backgroundColor: "white",
+                      marginTop: 10,
+                      marginBottom: 10
+                    }}
+                  >
+                    <Input
+                      autoCorrect={false}
+                      autoCapitalize="none"
+                      onChangeText={username => this.setState({ username })}
+                      placeholder="username"
+                    />
+                  </Item>
 
-                <Item
-                  rounded
-                  style={{ backgroundColor: "white", marginTop: 10 }}
-                >
-                  <Input
-                    autoCorrect={false}
-                    secureTextEntry
-                    autoCapitalize="none"
-                    onChangeText={password => this.setState({ password })}
-                    placeholder="password"
-                  />
-                </Item>
-              </Form>
-            </Body>
-          </ListItem>
-          <Button
-            full
-            onPress={() => this.props.login(this.state, this.props.navigation)}
-            style={{ backgroundColor: "rgb(228, 211, 207)" }}
-          >
-            <Text>Login</Text>
-          </Button>
-          <Button
-            full
-            onPress={() => this.props.navigation.navigate("Signup")}
-            style={{ backgroundColor: "rgb(186, 123, 128)" }}
-          >
-            <Text>Register</Text>
-          </Button>
-        </List>
-      </Content>
-    );
+                  <Item
+                    rounded
+                    style={{ backgroundColor: "white", marginTop: 10 }}
+                  >
+                    <Input
+                      autoCorrect={false}
+                      secureTextEntry
+                      autoCapitalize="none"
+                      onChangeText={password => this.setState({ password })}
+                      placeholder="password"
+                    />
+                  </Item>
+                </Form>
+              </Body>
+            </ListItem>
+            <Button
+              full
+              onPress={() =>
+                this.props.login(this.state, this.props.navigation)
+              }
+              style={{ backgroundColor: "rgb(228, 211, 207)" }}
+            >
+              <Text>Login</Text>
+            </Button>
+            <Button
+              full
+              onPress={() => this.props.navigation.navigate("Signup")}
+              style={{ backgroundColor: "rgb(186, 123, 128)" }}
+            >
+              <Text>Register</Text>
+            </Button>
+          </List>
+        </Content>
+      );
+    }
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    user: state.authReducer.user
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
   login: (userData, navigation) =>
@@ -89,6 +102,6 @@ const mapDispatchToProps = dispatch => ({
   // checkForExpiredToken: () => dispatch(actionCreators.checkForExpiredToken())
 });
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Login);

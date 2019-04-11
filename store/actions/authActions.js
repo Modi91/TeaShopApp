@@ -5,6 +5,7 @@ import jwt_decode from "jwt-decode";
 // ActionTypes
 import * as actionTypes from "./actionTypes";
 import { AsyncStorage } from "react-native";
+import { fetchProfile } from "../actions/profileActions";
 
 const setAuthToken = token => {
   if (token) {
@@ -17,7 +18,7 @@ const setAuthToken = token => {
 };
 
 export const checkForExpiredToken = () => {
-  return dispatch => {
+  return async dispatch => {
     // Get token
     const token = AsyncStorage.getItem("token");
 
@@ -28,8 +29,8 @@ export const checkForExpiredToken = () => {
       // Check token expiration
       if (user.exp >= currentTime) {
         // Set auth token header
-        setAuthToken(token);
         dispatch(setCurrentUser(user));
+        setAuthToken(token);
       } else {
         dispatch(logout());
       }
@@ -37,8 +38,29 @@ export const checkForExpiredToken = () => {
   };
 };
 
+// export const login = (userData, navigation) => {
+//   console.log(userData);
+//   return async dispatch => {
+//     try {
+//       axios
+//         .post("http://127.0.0.1:8000/api/login/", userData)
+//         .then(res => res.data)
+//         .then(user => {
+//           setAuthToken(user.token);
+//           return jwt_decode(user.token);
+//         })
+//         .then(decodedUser => dispatch(setCurrentUser(decodedUser)))
+//         .then(() => dispatch(fetchProfile()));
+//       // let decodeUser = jwt_decode(user.token);
+//       // dispatch(setCurrentUser(decodeUser));
+//       navigation.navigate("Home");
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   };
+// };
+
 export const login = (userData, navigation) => {
-  console.log(userData);
   return async dispatch => {
     try {
       let response = await axios.post(
@@ -48,8 +70,9 @@ export const login = (userData, navigation) => {
       let user = await response.data;
       let decodeUser = jwt_decode(user.token);
       setAuthToken(user.token);
-      dispatch(setCurrentUser(decodeUser));
-      //   navigation.navigate("/home");
+      await dispatch(setCurrentUser(decodeUser));
+      dispatch(fetchProfile());
+      navigation.navigate("Profile");
     } catch (error) {
       console.error(error);
     }

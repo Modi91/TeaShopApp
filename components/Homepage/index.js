@@ -8,6 +8,7 @@ import * as actionCreators from "../../store/actions";
 class HomePage extends Component {
   componentDidMount() {
     this.props.fetchProducts();
+    // this.props.fetchProfile();
   }
   render() {
     return (
@@ -65,7 +66,8 @@ class HomePage extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchProducts: () => dispatch(actionCreators.fetchProducts())
+    fetchProducts: () => dispatch(actionCreators.fetchProducts()),
+    fetchProfile: () => dispatch(actionCreators.fetchProfile())
   };
 };
 
