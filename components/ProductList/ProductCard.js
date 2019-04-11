@@ -72,6 +72,7 @@ class ProductCard extends Component {
                     type="AntDesign"
                     danger
                     onPress={this.handleAddClick}
+                    style={{ color: "rgb(155, 166, 87)", fontSize: 20 }}
                   />
                 </CardItem>
                 <CardItem>
