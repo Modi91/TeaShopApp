@@ -18,16 +18,14 @@ import {
   Header
 } from "native-base";
 class Login extends Component {
-  static navigationOptions = {
-    title: "Login"
-  };
   state = {
     username: "",
     password: ""
   };
   render() {
     if (this.props.user) {
-      return this.props.navigation.navigate("Profile");
+      // return this.props.navigation.navigate("Profile");
+      return <Profile />;
     } else {
       return (
         <Content>
