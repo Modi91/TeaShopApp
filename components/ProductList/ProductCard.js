@@ -8,10 +8,9 @@ import {
   Card,
   CardItem,
   Header,
-  Title,
+  Icon,
   Content,
-  ListItem,
-  Button
+  ListItem
 } from "native-base";
 
 // Action Functions
@@ -19,6 +18,14 @@ import * as actionCreators from "../../store/actions";
 import { withNavigation } from "react-navigation";
 
 class ProductCard extends Component {
+  state = {
+    quantity: 1
+  };
+
+  handleAddClick = () => {
+    this.props.addCart(this.props.product, this.state.quantity);
+  };
+
   handlePress = async product => {
     await this.props.getProduct(product);
     this.props.navigation.navigate("Detail", { product: product });
@@ -60,6 +67,14 @@ class ProductCard extends Component {
                   </Text>
                 </CardItem>
                 <CardItem>
+                  <Icon
+                    name="plus"
+                    type="AntDesign"
+                    danger
+                    onPress={this.handleAddClick}
+                  />
+                </CardItem>
+                <CardItem>
                   {product.stock > 0 ? (
                     <Text style={{ color: "green", fontSize: 13 }}>
                       In Stock
@@ -80,9 +95,9 @@ class ProductCard extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  getProduct: product => dispatch(actionCreators.currentProduct(product))
-  // addCart: (productObj, quantity) =>
-  //   dispatch(actionCreators.addCart(productObj, quantity))
+  getProduct: product => dispatch(actionCreators.currentProduct(product)),
+  addCart: (productObj, quantity) =>
+    dispatch(actionCreators.addCart(productObj, quantity))
 });
 
 export default connect(

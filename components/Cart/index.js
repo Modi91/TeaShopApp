@@ -23,9 +23,11 @@ import CartRow from "./CartRow";
 // Components
 
 class CartPage extends Component {
+
   static navigationOptions = {
-    title: "Cart"
+    title: "Your Cart"
   };
+
   state = {
     res: false
   };
