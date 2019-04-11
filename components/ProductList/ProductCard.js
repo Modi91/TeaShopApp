@@ -8,10 +8,9 @@ import {
   Card,
   CardItem,
   Header,
-  Title,
+  Icon,
   Content,
-  ListItem,
-  Button
+  ListItem
 } from "native-base";
 
 // Action Functions
@@ -19,6 +18,14 @@ import * as actionCreators from "../../store/actions";
 import { withNavigation } from "react-navigation";
 
 class ProductCard extends Component {
+  state = {
+    quantity: 1
+  };
+
+  handleAddClick = () => {
+    this.props.addCart(this.props.product, this.state.quantity);
+  };
+
   handlePress = async product => {
     await this.props.getProduct(product);
     this.props.navigation.navigate("Detail", { product: product });
@@ -52,17 +59,31 @@ class ProductCard extends Component {
                 <CardItem>
                   <Text
                     style={{
-                      position: "relative"
+                      position: "relative",
+                      color: "rgb(137, 137, 136)"
                     }}
                   >
                     {product.price}
                   </Text>
                 </CardItem>
                 <CardItem>
+                  <Icon
+                    name="plus"
+                    type="AntDesign"
+                    danger
+                    onPress={this.handleAddClick}
+                    style={{ color: "rgb(155, 166, 87)", fontSize: 20 }}
+                  />
+                </CardItem>
+                <CardItem>
                   {product.stock > 0 ? (
-                    <Text style={{ color: "green" }}>In Stock</Text>
+                    <Text style={{ color: "green", fontSize: 13 }}>
+                      In Stock
+                    </Text>
                   ) : (
-                    <Text style={{ color: "red" }}>Out of Stock</Text>
+                    <Text style={{ color: "red", fontSize: 13 }}>
+                      Out of Stock
+                    </Text>
                   )}
                 </CardItem>
               </Card>
@@ -75,9 +96,9 @@ class ProductCard extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  getProduct: product => dispatch(actionCreators.currentProduct(product))
-  // addCart: (productObj, quantity) =>
-  //   dispatch(actionCreators.addCart(productObj, quantity))
+  getProduct: product => dispatch(actionCreators.currentProduct(product)),
+  addCart: (productObj, quantity) =>
+    dispatch(actionCreators.addCart(productObj, quantity))
 });
 
 export default connect(

@@ -17,6 +17,9 @@ import {
   Header
 } from "native-base";
 class index extends Component {
+  static navigationOptions = {
+    title: "Signup"
+  };
   state = {
     username: "",
     password: "",
@@ -101,9 +104,9 @@ class index extends Component {
           <Button
             full
             onPress={() => this.props.signup(this.state, this.props.navigation)}
-            style={{ backgroundColor: "rgb(186, 123, 128)" }}
+            style={{ backgroundColor: "rgb(155, 166, 87)" }}
           >
-            <Text>Register</Text>
+            <Text>Signup</Text>
           </Button>
         </List>
         <Body>

@@ -18,6 +18,9 @@ import {
   Header
 } from "native-base";
 class Login extends Component {
+  static navigationOptions = {
+    title: "Login"
+  };
   state = {
     username: "",
     password: ""
@@ -49,41 +52,38 @@ class Login extends Component {
                     />
                   </Item>
 
-                  <Item
-                    rounded
-                    style={{ backgroundColor: "white", marginTop: 10 }}
-                  >
-                    <Input
-                      autoCorrect={false}
-                      secureTextEntry
-                      autoCapitalize="none"
-                      onChangeText={password => this.setState({ password })}
-                      placeholder="password"
-                    />
-                  </Item>
-                </Form>
-              </Body>
-            </ListItem>
-            <Button
-              full
-              onPress={() =>
-                this.props.login(this.state, this.props.navigation)
-              }
-              style={{ backgroundColor: "rgb(228, 211, 207)" }}
-            >
-              <Text>Login</Text>
-            </Button>
-            <Button
-              full
-              onPress={() => this.props.navigation.navigate("Signup")}
-              style={{ backgroundColor: "rgb(186, 123, 128)" }}
-            >
-              <Text>Register</Text>
-            </Button>
-          </List>
-        </Content>
-      );
-    }
+                <Item
+                  rounded
+                  style={{ backgroundColor: "white", marginTop: 10 }}
+                >
+                  <Input
+                    autoCorrect={false}
+                    secureTextEntry
+                    autoCapitalize="none"
+                    onChangeText={password => this.setState({ password })}
+                    placeholder="password"
+                  />
+                </Item>
+              </Form>
+            </Body>
+          </ListItem>
+          <Button
+            full
+            onPress={() => this.props.login(this.state, this.props.navigation)}
+            style={{ backgroundColor: "rgb(207, 214, 160)" }}
+          >
+            <Text>Login</Text>
+          </Button>
+          <Button
+            full
+            onPress={() => this.props.navigation.navigate("Signup")}
+            style={{ backgroundColor: "rgb(155, 166, 87)" }}
+          >
+            <Text>Signup</Text>
+          </Button>
+        </List>
+      </Content>
+    );
   }
 }
 

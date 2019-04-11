@@ -7,14 +7,15 @@ const instance = axios.create({
   baseURL: "http://127.0.0.1:8000"
 });
 
-export const fetchOrdersHistory = () => {
+export const fetchOrdersHistory = userID => {
   return async dispatch => {
     try {
       const res = await instance.get("api/orders");
       const orders = res.data;
       dispatch({
         type: actionTypes.FETCH_ORDERS_HISTORY,
-        payload: orders
+        payload: orders,
+        user: userID
       });
     } catch (error) {
       console.log("Something went wrong with ", error);
