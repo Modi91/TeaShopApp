@@ -32,7 +32,6 @@ export const createOrder = orders => {
     try {
       const res = await instance.post("/api/create/", orders);
       const response = res.data["response"];
-      console.log("this is response", response);
       dispatch({
         type: actionTypes.CREATE_ORDER,
         payload: response

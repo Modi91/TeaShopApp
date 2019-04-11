@@ -8,7 +8,6 @@ const initialState = {
 const resucer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.FETCH_PROFILE:
-      console.log("TCL: resucer -> action.payload", action.payload);
       return {
         ...state,
         profile: action.payload

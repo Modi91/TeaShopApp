@@ -18,7 +18,7 @@ export const fetchOrdersHistory = userID => {
         user: userID
       });
     } catch (error) {
-      console.log("Something went wrong with ", error);
+      console.error("Something went wrong with ", error);
     }
   };
 };
